@@ -118,4 +118,32 @@ class LinkedListOperations
         
         	return result.next;
     	}
+
+	public ListNode shiftListRightByKPlaces(ListNode head, int k)
+    	{
+        	if(head == null)
+            		return head;
+        
+        	ListNode traverse = head;
+        
+        	int len = 1;
+        
+        	while(traverse.next != null)
+        	{
+            		traverse = traverse.next;
+            		len++;
+        	}
+        
+        	traverse.next = head;
+        
+        	for(int i=1; i<len-k%len; i++)
+        	{
+            		head = head.next;
+        	}
+        
+        	traverse = head.next;
+        	head.next = null;
+        
+        	return traverse;
+	}
 }
