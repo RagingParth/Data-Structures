@@ -96,4 +96,26 @@ class LinkedListOperations
 
         	return guard.next;
     	}
+
+	public ListNode swapPairs(ListNode head)
+    	{
+        	if(head==null || head.next==null)
+            		return head;
+        
+        	ListNode ref = head;
+        	ListNode dummy = new ListNode(0);
+        	ListNode result = dummy;
+        
+        	while(ref!=null && ref.next!=null)
+        	{
+			dummy.next = ref.next;
+			ref.next = ref.next.next;
+			dummy = dummy.next;
+			dummy.next = ref;
+			dummy = dummy.next;
+			ref = ref.next;
+        	}
+        
+        	return result.next;
+    	}
 }
