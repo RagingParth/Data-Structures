@@ -75,4 +75,25 @@ class LinkedListOperations
         
         	return sorted;
     	}
+
+	public ListNode removeNthNodeFromEnd(ListNode head, int n)
+    	{
+        	ListNode guard = new ListNode(0);
+        	guard.next = head;
+        	ListNode fast = guard;
+        	ListNode slow = guard;
+        
+        	for(int i=0; i<n+1; i++)
+            		fast = fast.next;
+            
+        	while(fast!=null)
+        	{
+            		fast = fast.next;
+            		slow = slow.next;
+        	}
+        
+        	slow.next = slow.next.next;
+
+        	return guard.next;
+    	}
 }
