@@ -51,4 +51,28 @@ class LinkedListOperations
 
         	return sentinel.next;
     	}
+
+	public ListNode mergeTwoSortedLists(ListNode l1, ListNode l2)
+    	{
+        	if(l1 == null)
+            		return l2;
+            
+        	if(l2 == null)
+            		return l1;
+            
+        	ListNode sorted;
+        
+        	if(l1.val < l2.val)
+        	{
+            		sorted = l1;
+            		sorted.next = mergeTwoLists(l1.next, l2);
+        	}
+        	else
+        	{
+            		sorted = l2;
+            		sorted.next = mergeTwoLists(l1, l2.next);
+        	}
+        
+        	return sorted;
+    	}
 }
