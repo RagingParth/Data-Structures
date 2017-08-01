@@ -17,6 +17,9 @@ class LinkedListOperations
 	public static void main(String args[])
 	{
 		Scanner sc = new Scanner(System.in);
+		LinkedListOperations obj = new LinkedListOperations();
+
+		// Call any method you wish
 	}
 
 	public ListNode addTwoLinkedLists(ListNode l1, ListNode l2)
@@ -146,4 +149,20 @@ class LinkedListOperations
         
         	return traverse;
 	}
+
+	public ListNode reverseList(ListNode head)
+    	{
+        	ListNode prev = null;
+        	ListNode curr = head;
+        
+        	while (curr != null)
+        	{
+            		ListNode nextTemp = curr.next;
+            		curr.next = prev;
+            		prev = curr;
+            		curr = nextTemp;
+        	}
+        
+        	return prev;
+    	}
 }
