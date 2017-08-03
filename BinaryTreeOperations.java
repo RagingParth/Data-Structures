@@ -17,6 +17,7 @@ class Node
 class BinaryTreeOperations
 {
 	public static Node root;
+
 	public BinaryTreeOperations()
 	{
 		this.root=null;
